@@ -20,6 +20,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        
                         <router-link to="/Categories" class="nav-link">Categories</router-link>
                     @else
                         <a href="{{ route('login') }}">Login</a>

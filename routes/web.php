@@ -28,15 +28,14 @@ Route::group(['middleware' => 'role:admin'], function() {
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/testvue', function () {
-   return view('testvue');
-});
+
+Route::get('/controlpanel', 'ControlPanelController@index')->name('ControlPanel');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('add_role','HomeController@add_role');
+Route::get('add_role','ControlPanelController@add_role');
 Route::get('/roles', 'PermissionController@Permission');
 
 // Categories
-Route::get('/categories', 'CategoryController@show')->name('Categories');
 
+ Route::post('/addcategory', 'CategoryController@store')->name('addcategory');
+ //Route::resource('categories', 'CategoryController');

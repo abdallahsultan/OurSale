@@ -8,7 +8,7 @@
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
   <meta name="csrf-token" value="{{ csrf_token() }}" />
-  <title>OurSale - @yield('title')</title>
+  <title>OurSale Controlpanel - @yield('title')</title>
 
   <!-- Favicons -->
   <link href="{{asset('asset/img/favicon.png')}}" rel="icon">
@@ -21,9 +21,12 @@
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/zabuto_calendar.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/lib/gritter/css/jquery.gritter.css')}}" />
   <!-- Custom styles for this template -->
-  <link href="{{ asset('css/app.css') }}" type="text/css" rel="stylesheet" />
+  
   <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
+  
+  
   <link href="{{asset('asset/css/style-responsive.css')}}" rel="stylesheet">
+  <!-- <link href="{{asset('css/app.css')}}" rel="stylesheet"> -->
   <script src="{{asset('asset/lib/chart-master/Chart.js')}}"></script>
  
   <!-- =======================================================
@@ -36,6 +39,7 @@
 
 <body>
   <section id="container">
+  <div id="app">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -45,7 +49,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="index.html" class="logo"><b>Our<span>Sale</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -255,20 +259,17 @@
           <p class="centered"><a href="profile.html"><img src="{{asset('asset/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">{{Auth::user()->name}}</h5>
           <li class="mt">
-            <a class="active" href="index.html">
-              <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
-              </a>
+          <router-link to="Dashboard" class=""><i class="fa fa-desktop"></i> Dashboard </router-link>
           </li>
-          <li class="nav-item">  <router-link to="/Categories" class="nav-link">All Categories</router-link></li>
+         
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
               <span>Categories</span>
               </a>
             <ul class="sub">
-              <li class="nav-item"><router-link to="Categories" class="nav-link">All Categories </router-link></li>
-              <li><a href="{{asset('asset/buttons.html')}}">Add New Category</a></li>
+              <li class="nav-item"><router-link to="AllCategories" class="nav-link">All Categories </router-link></li>
+              <li><router-link to="Categories" class="nav-link">Add New Category </router-link></li>
               
             </ul>
           </li>
@@ -385,10 +386,11 @@
     <!--main content start-->
     <section id="main-content">
 
-     <section class="wrapper" id="app">
      
-       @yield('content')
-      </section>
+     
+     <router-view></router-view>
+      
+      
     </section>
     <!--main content end-->
     <!--footer start-->
@@ -407,11 +409,12 @@
       </div>
     </footer> -->
     <!--footer end-->
+    </div>
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   
   <script src="{{asset('asset/lib/jquery/jquery.min.js')}}"></script>
-
+  <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
   <script src="{{asset('asset/lib/bootstrap/js/bootstrap.min.js')}}"></script>
   
   <script class="include" type="text/javascript" src="{{asset('asset/lib/jquery.dcjqaccordion.2.7.js')}}"></script>

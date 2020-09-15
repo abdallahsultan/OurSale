@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\HasPermissionsTrait;
-class HomeController extends Controller
+class ControlPanelController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $view_data = array('page_title' => 'All Categories' );  
-        return view('admin\home',$view_data);
+        return view('admin\main\controlpanel',$view_data);
     }
     public function add_role()
     {
